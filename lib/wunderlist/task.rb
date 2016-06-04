@@ -69,7 +69,7 @@ module Wunderlist
     def reminder
       res = self.api.request :get, 'api/v1/reminders', {:task_id => self.id}
       if !res[0].nil?
-        reminder = Wunderlist::Rminder.new(res[0])
+        reminder = Wunderlist::Reminder.new(res[0])
       else
         reminder = Wunderlist::Reminder.new('task_id' => self.id)
       end
